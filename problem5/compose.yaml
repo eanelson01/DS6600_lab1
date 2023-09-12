@@ -1,0 +1,25 @@
+services:
+  jupyterlab:
+    image: ean8fr/ds6600lab1problem5
+    env_file:
+      - .env
+    ports:
+      - "8890:8888"
+    volumes:
+      - ./:/problem5
+    networks:
+      - dbnetwork
+  postgres:
+    image: postgres:latest
+    env_file:
+      - .env
+    volumes:
+      - postgresdata:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    networks:
+      - dbnetwork
+volumes:
+  postgresdata:
+networks:
+  dbnetwork:
