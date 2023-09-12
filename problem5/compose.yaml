@@ -1,4 +1,5 @@
 services:
+
   jupyterlab:
     image: ean8fr/ds6600lab1problem5
     env_file:
@@ -9,6 +10,7 @@ services:
       - ./:/problem5
     networks:
       - dbnetwork
+
   postgres:
     image: postgres:latest
     env_file:
@@ -19,7 +21,9 @@ services:
       - "5432:5432"
     networks:
       - dbnetwork
+
 volumes:
   postgresdata:
+
 networks:
   dbnetwork:
